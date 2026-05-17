@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zedjah-platform.vercel.app"),
   title: {
     default: "Zedjah — Organic Crowd Farming Platform",
     template: "%s | Zedjah",
