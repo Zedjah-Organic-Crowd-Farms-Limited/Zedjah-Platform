@@ -3,9 +3,31 @@
    ============================================================ */
 
 .pageHero {
-  background: linear-gradient(135deg, #0D3B13 0%, #1B5E20 60%, #2E7D32 100%);
-  padding: var(--space-5xl) 0 var(--space-4xl);
+  position: relative;
+  background: url('/images/services-hero-bg.png') center / cover no-repeat;
+  padding: calc(var(--space-5xl) + 2rem) 0 var(--space-4xl);
   text-align: center;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageHero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 59, 19, 0.75) 0%,
+    rgba(27, 94, 32, 0.6) 50%,
+    rgba(13, 59, 19, 0.8) 100%
+  );
+}
+
+.pageHero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .tag {
@@ -115,8 +137,9 @@
 
 /* ─── CTA ─── */
 .ctaBanner {
-  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  background: var(--color-surface-dark);
   padding: var(--space-4xl) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .ctaTitle {
@@ -136,6 +159,7 @@
 @media (max-width: 768px) {
   .pageHero {
     padding: var(--space-3xl) 0 var(--space-2xl);
+    min-height: 320px;
   }
 
   .pageSubtitle {

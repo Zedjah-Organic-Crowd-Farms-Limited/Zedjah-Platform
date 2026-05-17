@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
@@ -7,6 +8,11 @@ export const metadata: Metadata = {
   description:
     "Get in touch with Zedjah Organic Crowd Farms. Reach out for consultancy, partnerships, or general inquiries.",
 };
+
+const WHATSAPP_NUMBER = "254719156232";
+const WHATSAPP_MESSAGE = encodeURIComponent(
+  "Hello Zedjah! I'm interested in learning more about your organic farming services."
+);
 
 export default function ContactPage() {
   return (
@@ -55,16 +61,31 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <h4>Phone</h4>
-                    <p>+254 719 267 962</p>
+                    <p>+254 719 156 232</p>
                   </div>
                 </div>
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.infoItem}
+                  id="whatsapp-contact-link"
+                >
+                  <span className={`${styles.infoIcon} ${styles.whatsappIcon}`}>
+                    <WhatsAppIcon size={20} />
+                  </span>
+                  <div>
+                    <h4>WhatsApp</h4>
+                    <p className={styles.whatsappText}>Chat with us instantly</p>
+                  </div>
+                </a>
                 <div className={styles.infoItem}>
                   <span className={styles.infoIcon}>
                     <MapPin size={20} />
                   </span>
                   <div>
                     <h4>Location</h4>
-                    <p>Nairobi, Kenya</p>
+                    <p>Kirinyaga County, Kenya</p>
                   </div>
                 </div>
                 <div className={styles.infoItem}>
@@ -143,6 +164,41 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Map Section */}
+      <section className={styles.mapSection} id="location-map">
+        <div className="container">
+          <h2 className="section-heading">Find Us</h2>
+          <p className="section-subtitle">
+            Visit our farm in the heart of Kirinyaga County
+          </p>
+          <div className={styles.mapWrapper}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127642.78580832792!2d37.2833!3d-0.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18287c4d5bcf7a5b%3A0x1a1a3f1e2e3c4d5e!2sKirinyaga%20County!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Zedjah Organic Crowd Farms - Kirinyaga County Location"
+              id="google-map-embed"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.whatsappFab}
+        aria-label="Chat with us on WhatsApp"
+        id="whatsapp-fab"
+      >
+        <WhatsAppIcon size={28} />
+      </a>
     </>
   );
 }
