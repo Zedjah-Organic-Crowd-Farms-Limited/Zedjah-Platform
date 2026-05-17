@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Zedjah — Organic Crowd Farming Platform",
     description:
       "Zedjah Organic Crowd Farms connects communities to sustainable agriculture through expert consultancy, soil nutrition, and market linkage support.",
-    images: ["https://zedjah-platform.vercel.app/images/zedjahLogo.svg"],
+    images: ["https://zedjah-platform.vercel.app/images/zedjahlogo.jpeg"],
     type: "website",
     siteName: "Zedjah Organic Crowd Farms",
   },
