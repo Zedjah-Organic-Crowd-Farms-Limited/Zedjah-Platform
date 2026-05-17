@@ -7,6 +7,8 @@ import {
   Users,
   Lightbulb,
   Eye,
+  Shield,
+  Coins,
 } from "lucide-react";
 import styles from "./about.module.css";
 
@@ -100,31 +102,31 @@ export default function AboutPage() {
       {/* Values */}
       <section className={`section`} id="values">
         <div className="container">
-          <h2 className="section-heading">Our Values</h2>
+          <h2 className="section-heading">Zedjah Farm Core Values</h2>
           <p className="section-subtitle">
-            The principles that guide everything we do
+            This are the core values that governs Zedjah Organic Crowd Farms Globally
           </p>
           <div className={styles.valuesGrid}>
             {[
               {
-                icon: <Leaf size={28} />,
-                title: "Sustainability",
-                desc: "We champion practices that protect and regenerate the land.",
-              },
-              {
-                icon: <Users size={28} />,
-                title: "Community",
-                desc: "We believe in the power of collective action and shared success.",
+                icon: <Eye size={28} />,
+                title: "Accountability",
+                desc: "Being transparent in every value chain through the engagement level.",
               },
               {
                 icon: <Lightbulb size={28} />,
                 title: "Innovation",
-                desc: "We blend traditional wisdom with modern agricultural science.",
+                desc: "To remain steadfast at intuitive solutiion thinking to remain sustainable.",
               },
               {
-                icon: <Eye size={28} />,
-                title: "Transparency",
-                desc: "We operate with honesty, accountability, and open communication.",
+                icon: <Shield size={28} />,
+                title: "Integrity",
+                desc: "To accomodate humanity and orders of human rights in the peace of freedom and democracy.",
+              },
+              {
+                icon: <Coins size={28} />,
+                title: "Value For Money",
+                desc: "To assure and credit return on investment (ROI) reducing and substaining risks for prospective Agri business.",
               },
             ].map((value) => (
               <div key={value.title} className={styles.valueCard}>

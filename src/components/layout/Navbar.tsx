@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Leaf } from "lucide-react";
 import styles from "./Navbar.module.css";
 
 interface DropdownItem {
@@ -47,6 +47,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navRef = useRef<HTMLElement>(null);
+  const canHover = useRef(true);
 
   /* Track scroll for sticky bg */
   useEffect(() => {
@@ -72,12 +73,23 @@ export default function Navbar() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
+  /* Detect hover capability */
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover)");
+    canHover.current = mq.matches;
+    const handler = (e: MediaQueryListEvent) => { canHover.current = e.matches; };
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   const handleDropdownEnter = (label: string) => {
+    if (!canHover.current) return;
     if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
     setActiveDropdown(label);
   };
 
   const handleDropdownLeave = () => {
+    if (!canHover.current) return;
     dropdownTimeoutRef.current = setTimeout(() => setActiveDropdown(null), 200);
   };
 
@@ -95,8 +107,15 @@ export default function Navbar() {
       <div className={styles.inner}>
         {/* Logo — far left */}
         <Link href="/" className={styles.logo} id="nav-logo">
-          <Leaf className={styles.logoIcon} size={24} strokeWidth={2.5} />
-          <span className={styles.logoText}>Zedjah</span>
+          <Image
+            src="/images/zedjahLogo.svg"
+            alt="Zedjah logo"
+            width={40}
+            height={40}
+            className={styles.logoIcon}
+            priority
+          />
+
         </Link>
 
         {/* Nav links — centered */}

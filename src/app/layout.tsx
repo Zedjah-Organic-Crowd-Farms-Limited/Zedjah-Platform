@@ -20,6 +20,18 @@ export const metadata: Metadata = {
     "market linkage",
     "sustainable agriculture",
   ],
+  icons: {
+    icon: "/images/zedjahLogo.svg",
+    apple: "/images/zedjahLogo.svg",
+  },
+  openGraph: {
+    title: "Zedjah — Organic Crowd Farming Platform",
+    description:
+      "Zedjah Organic Crowd Farms connects communities to sustainable agriculture through expert consultancy, soil nutrition, and market linkage support.",
+    images: ["/images/zedjahLogo.svg"],
+    type: "website",
+    siteName: "Zedjah Organic Crowd Farms",
+  },
 };
 
 export default function RootLayout({

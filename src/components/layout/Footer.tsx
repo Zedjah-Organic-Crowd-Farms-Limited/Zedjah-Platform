@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Leaf } from "lucide-react";
+import Image from "next/image";
 import styles from "./Footer.module.css";
 
 const FOOTER_LINKS = {
@@ -28,8 +28,13 @@ export default function Footer() {
         {/* Brand column */}
         <div className={styles.brand}>
           <Link href="/" className={styles.logo}>
-            <Leaf className={styles.logoIcon} size={22} strokeWidth={2.5} />
-            <span className={styles.logoText}>Zedjah</span>
+            <Image
+              src="/images/zedjahLogo.svg"
+              alt="Zedjah logo"
+              width={32}
+              height={32}
+              className={styles.logoIcon}
+            />
           </Link>
           <p className={styles.tagline}>
             Organic crowd farming for sustainable growth. Empowering farmers,
