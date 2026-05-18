@@ -31,8 +31,7 @@ export default function AboutPage() {
             one farm at a time
           </h1>
           <p className={styles.pageSubtitle}>
-            We&apos;re building a future where sustainable farming empowers communities
-            and nourishes the world.
+            Zedjan organic crowd farms is a farm system Management company and organic food producing entity.
           </p>
         </div>
       </section>
@@ -47,9 +46,7 @@ export default function AboutPage() {
               </span>
               <h3>Our Mission</h3>
               <p>
-                To empower smallholder farmers with the knowledge, resources,
-                and market access they need to build sustainable livelihoods
-                through organic agriculture.
+                To be an agricultural organisation service provider with accountability, innovation, integrity and value for money attached to social economic values at the heart of agroecology.
               </p>
             </div>
             <div className={styles.missionCard}>
@@ -58,9 +55,7 @@ export default function AboutPage() {
               </span>
               <h3>Our Vision</h3>
               <p>
-                A world where every farmer can thrive — producing healthy food,
-                building resilient communities, and protecting the environment
-                for future generations.
+                To be the leading farm management and organic food industry in the sustainable agriculture prioritising agroecology of the world we need to create.
               </p>
             </div>
           </div>
@@ -80,24 +75,16 @@ export default function AboutPage() {
               />
             </div>
             <div className={styles.storyText}>
-              <span className={styles.tag}>Our Story</span>
-              <h2>From a small farm to a growing movement</h2>
+              <span className={styles.tag}>History</span>
+              <h2>Our Origins</h2>
               <p>
-                Zedjah was born from a simple belief — that the future of
-                agriculture lies in community, sustainability, and shared
-                prosperity. What started as a local consultancy has grown into a
-                platform connecting farmers, investors, and consumers across East
-                Africa.
-              </p>
-              <p>
-                Today, we work with hundreds of farmers across multiple counties,
-                providing hands-on support from soil analysis to market access.
-                We&apos;re not just growing crops — we&apos;re growing futures.
+                Zedjan organic crowd farms was invented from a historic background of poverty and food insecurity - it was more of a relief and community empowerment project to improve community resilience. It thrives in the principles of Humanity, food security and sustainability having overcomed the effects of conventional agriculture.
               </p>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Values */}
       <section className={`section`} id="values">

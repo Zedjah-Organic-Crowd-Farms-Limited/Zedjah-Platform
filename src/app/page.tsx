@@ -106,24 +106,24 @@ export default function Home() {
             {[
               {
                 icon: <Sprout size={28} />,
-                title: "Farm Consultancy",
+                title: "Farm System Management",
                 description:
-                  "Expert guidance on farm management, crop planning, and operational efficiency to maximize your yields.",
+                  "Comprehensive management of your farm operations, ensuring efficient workflows and maximized organic yields.",
                 href: "/services",
               },
               {
                 icon: <FlaskConical size={28} />,
-                title: "Soil & Nutrition",
+                title: "Soil Management",
                 description:
-                  "Comprehensive soil analysis and plant nutrition programs to ensure healthy, productive land.",
-                href: "/services/soil-nutrition",
+                  "Advanced soil testing and nutrient balancing programs to build a resilient foundation for your crops.",
+                href: "/services",
               },
               {
                 icon: <Handshake size={28} />,
-                title: "Market Linkage",
+                title: "Production Consultancy",
                 description:
-                  "Connect directly with buyers, cooperatives, and markets to get fair prices for your produce.",
-                href: "/services/market-linkage",
+                  "Expert guidance to navigate organic certification, pest control, and sustainable farming best practices.",
+                href: "/services",
               },
             ].map((service) => (
               <a

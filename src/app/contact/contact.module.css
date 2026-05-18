@@ -242,11 +242,11 @@ a.infoItem:hover .whatsappIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #25D366;
+  background: var(--color-primary);
   color: white;
   border-radius: 50%;
   box-shadow:
-    0 4px 16px rgba(37, 211, 102, 0.35),
+    0 4px 16px rgba(75, 83, 32, 0.35),
     0 2px 6px rgba(0, 0, 0, 0.1);
   text-decoration: none;
   transition: all var(--transition-base);
@@ -254,23 +254,23 @@ a.infoItem:hover .whatsappIcon {
 }
 
 .whatsappFab:hover {
-  background: #20BD5A;
+  background: var(--color-primary-dark);
   transform: scale(1.1);
   box-shadow:
-    0 6px 24px rgba(37, 211, 102, 0.5),
+    0 6px 24px rgba(75, 83, 32, 0.5),
     0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 @keyframes whatsappPulse {
   0%, 100% {
     box-shadow:
-      0 4px 16px rgba(37, 211, 102, 0.35),
-      0 0 0 0 rgba(37, 211, 102, 0.3);
+      0 4px 16px rgba(75, 83, 32, 0.35),
+      0 0 0 0 rgba(75, 83, 32, 0.3);
   }
   50% {
     box-shadow:
-      0 4px 16px rgba(37, 211, 102, 0.35),
-      0 0 0 12px rgba(37, 211, 102, 0);
+      0 4px 16px rgba(75, 83, 32, 0.35),
+      0 0 0 12px rgba(75, 83, 32, 0);
   }
 }
 
