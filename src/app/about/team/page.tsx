@@ -32,6 +32,7 @@ export default function TeamPage() {
           <div className={styles.valuesGrid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
             {TEAM_MEMBERS.map((member) => (
               <div key={member.name} className={styles.valueCard} style={{ textAlign: "center" }}>
+                <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: "var(--color-surface-warm)", margin: "0 auto var(--space-md)" }}></div>
                 <h4>{member.name}</h4>
                 <p style={{ color: "var(--color-primary)", fontWeight: "600", marginBottom: "var(--space-sm)" }}>{member.role}</p>
                 <p style={{ fontSize: "var(--text-sm)" }}>{member.desc}</p>
