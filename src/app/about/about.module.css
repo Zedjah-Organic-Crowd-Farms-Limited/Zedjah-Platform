@@ -182,6 +182,7 @@
   line-height: var(--leading-relaxed);
 }
 
+
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   .pageHero {

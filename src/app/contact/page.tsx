@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "Get in touch with Zedjah Organic Crowd Farms. Reach out for consultancy, partnerships, or general inquiries.",
 };
 
-const WHATSAPP_NUMBER = "254719156232";
+const WHATSAPP_NUMBER = "254790344724";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello Zedjah! I'm interested in learning more about your organic farming services."
 );
@@ -52,7 +52,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <h4>Email</h4>
-                    <p>info@zedjah.com</p>
+                    <p>zedjahorganiccrowdfarms@gmail.com</p>
                   </div>
                 </div>
                 <div className={styles.infoItem}>
@@ -61,7 +61,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <h4>Phone</h4>
-                    <p>+254 719 156 232</p>
+                    <p>+254 790 344 724</p>
                   </div>
                 </div>
                 <a
@@ -85,7 +85,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <h4>Location</h4>
-                    <p>Kirinyaga County, Kenya</p>
+                    <p>Po. Box 3105-10300 Kerugoya</p>
                   </div>
                 </div>
                 <div className={styles.infoItem}>

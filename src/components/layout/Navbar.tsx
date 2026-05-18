@@ -15,6 +15,7 @@ interface DropdownItem {
 interface NavItem {
   label: string;
   href: string;
+  isMega?: boolean;
   dropdown?: DropdownItem[];
 }
 
@@ -29,15 +30,8 @@ const NAV_ITEMS: NavItem[] = [
       { label: "Our Impact", href: "/about/impact", description: "See the difference we make" },
     ],
   },
-  {
-    label: "Services",
-    href: "/services",
-    dropdown: [
-      { label: "Farm Consultancy", href: "/services", description: "Expert agricultural guidance" },
-      { label: "Soil & Nutrition", href: "/services/soil-nutrition", description: "Soil health and plant nutrition" },
-      { label: "Market Linkage", href: "/services/market-linkage", description: "Connect to buyers and markets" },
-    ],
-  },
+  { label: "Services", href: "/services" },
+  { label: "Partners", href: "/partners" },
 ];
 
 export default function Navbar() {
@@ -156,7 +150,7 @@ export default function Navbar() {
                     </svg>
                   </button>
                   <div
-                    className={`${styles.dropdown} ${activeDropdown === item.label ? styles.dropdownOpen : ""}`}
+                    className={`${item.isMega ? styles.megaMenu : styles.dropdown} ${activeDropdown === item.label ? (item.isMega ? styles.megaMenuOpen : styles.dropdownOpen) : ""}`}
                   >
                     {item.dropdown.map((sub) => (
                       <Link
