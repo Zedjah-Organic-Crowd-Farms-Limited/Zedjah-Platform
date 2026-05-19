@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zedjah-platform.vercel.app"),
+  metadataBase: new URL("https://www.zedjahorganiccrowdfarms.com"),
   title: {
     default: "Zedjah — Organic Crowd Farming Platform",
     template: "%s | Zedjah",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Zedjah — Organic Crowd Farming Platform",
     description:
       "Zedjah Organic Crowd Farms connects communities to sustainable agriculture through expert consultancy, soil nutrition, and market linkage support.",
-    images: ["https://zedjah-platform.vercel.app/images/zedjahlogo.jpeg"],
+    images: ["https://www.zedjahorganiccrowdfarms.com/images/zedjahlogo.jpeg"],
     type: "website",
     siteName: "Zedjah Organic Crowd Farms",
   },
@@ -42,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
-      <body>
+      <body suppressHydrationWarning>
         <Navbar />
         <main style={{ paddingTop: "var(--nav-height)" }}>{children}</main>
         <Footer />
