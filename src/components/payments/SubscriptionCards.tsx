@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function SubscriptionCards() {
   const router = useRouter();
   const [email, setEmail] = useState("");
-  const [selectedPlan, setSelectedPlan] = useState<{ name: string; amount: number; description: string } | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<{ name: string; amount: number; description: string; priceDisplay: string } | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
