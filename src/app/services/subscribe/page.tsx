@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SubscriptionCards from "@/components/SubscriptionCards";
+import SubscriptionCards from "@/components/payments/SubscriptionCards";
 
 export const metadata: Metadata = {
   title: "Subscribe | Services",
