@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import SubscriptionCards from "@/components/payments/SubscriptionCards";
-
+import SubscriptionCardsWrapper from "@/components/payments/SubscriptionCardsWrapper";
 export const metadata: Metadata = {
   title: "Subscribe | Services",
   description: "Subscribe to Zedjah's comprehensive organic farming services.",
@@ -21,7 +20,7 @@ export default function SubscribePage() {
 
       <section className="section">
         <div className="container">
-            <SubscriptionCards />
+            <SubscriptionCardsWrapper />
         </div>
       </section>
     </>
