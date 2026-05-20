@@ -7,6 +7,7 @@
 interface RateLimitEntry {
   count: number;
   windowStart: number;
+  windowMs: number;
 }
 
 const store = new Map<string, RateLimitEntry>();
@@ -22,11 +23,17 @@ export function rateLimit(ip: string, options: RateLimitOptions): { allowed: boo
   const now = Date.now();
   const { limit, windowMs } = options;
 
+  for (const [key, value] of store.entries()) {
+    if (now - value.windowStart > value.windowMs) {
+      store.delete(key);
+    }
+  }
+
   const entry = store.get(ip);
 
   if (!entry || now - entry.windowStart > windowMs) {
     // New window
-    store.set(ip, { count: 1, windowStart: now });
+    store.set(ip, { count: 1, windowStart: now, windowMs });
     return { allowed: true, remaining: limit - 1 };
   }
 
@@ -40,9 +47,15 @@ export function rateLimit(ip: string, options: RateLimitOptions): { allowed: boo
 
 /** Helper to extract the real IP from a Next.js request */
 export function getIP(req: Request): string {
-  return (
-    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
-    req.headers.get("x-real-ip") ||
-    "unknown"
-  );
+  const realIp = req.headers.get("x-real-ip")?.trim();
+  if (realIp) return realIp;
+
+  const forwardedFor = req.headers.get("x-forwarded-for");
+  const forwardedHost = req.headers.get("x-forwarded-host");
+  const forwardedProto = req.headers.get("x-forwarded-proto");
+  if ((forwardedHost || forwardedProto) && forwardedFor) {
+    return forwardedFor.split(",")[0].trim();
+  }
+
+  return crypto.randomUUID();
 }
