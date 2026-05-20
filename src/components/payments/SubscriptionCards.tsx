@@ -44,11 +44,17 @@ export default function SubscriptionCards() {
     setShowModal(true);
   };
 
+  const paystackPublicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY;
+
+  if (!paystackPublicKey) {
+    throw new Error("Missing NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY. Configure the Paystack public key before rendering SubscriptionCards.");
+  }
+
   const config = {
     reference: (new Date()).getTime().toString(),
     email: email,
     amount: selectedPlan?.amount || 0,
-    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "pk_test_513b9d6a3b34d439dcfc79df672d70025e1518b5",
+    publicKey: paystackPublicKey,
     currency: "KES", // Setting currency to Kenyan Shillings
     metadata: {
       custom_fields: [
