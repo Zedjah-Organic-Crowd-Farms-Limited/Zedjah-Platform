@@ -1,3 +1,5 @@
+import crypto from "crypto";
+
 /**
  * Simple in-memory rate limiter using a sliding window.
  * Works per serverless instance. Good enough for basic API protection.
