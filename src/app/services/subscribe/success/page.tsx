@@ -6,7 +6,8 @@ type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 export default async function SuccessPage(props: { searchParams: SearchParams }) {
   const searchParams = await props.searchParams;
-  const planName = searchParams?.plan || "your subscription";
+  const planParam = searchParams?.plan;
+  const planName = Array.isArray(planParam) ? planParam[0] : planParam;
   const reference = searchParams?.reference || "N/A";
 
   return (
@@ -15,7 +16,7 @@ export default async function SuccessPage(props: { searchParams: SearchParams })
         <CheckCircle size={64} color="var(--color-primary)" style={{ margin: "0 auto var(--space-md)" }} />
         <h1 style={{ marginBottom: "var(--space-sm)", color: "var(--color-primary)" }}>Payment Successful!</h1>
         <p style={{ fontSize: "var(--text-lg)", marginBottom: "var(--space-lg)" }}>
-          Thank you for subscribing to <strong>{planName}</strong>.
+          Thank you for subscribing to <strong>{planName || "your subscription"}</strong>.
         </p>
         <div style={{ background: "var(--color-surface-warm)", padding: "var(--space-md)", borderRadius: "8px", marginBottom: "var(--space-xl)", textAlign: "left" }}>
           <p style={{ margin: "0 0 var(--space-xs) 0", fontSize: "var(--text-sm)", color: "var(--color-text-secondary)" }}>Transaction Reference:</p>
