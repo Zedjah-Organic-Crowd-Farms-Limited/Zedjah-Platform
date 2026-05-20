@@ -1,20 +1,10 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { Resend } from "resend";
-import { rateLimit, getIP } from "@/lib/rateLimit";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
-  // Rate limit: max 30 webhook calls per IP per minute
-  // (Paystack fires once per event; this blocks bots hammering the endpoint)
-  const ip = getIP(req);
-  const { allowed } = rateLimit(ip, { limit: 30, windowMs: 60_000 });
-
-  if (!allowed) {
-    return NextResponse.json({ message: "Too many requests" }, { status: 429 });
-  }
-
   try {
     const rawBody = await req.text();
     const signature = req.headers.get("x-paystack-signature");
