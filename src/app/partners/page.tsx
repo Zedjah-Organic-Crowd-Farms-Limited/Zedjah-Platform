@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Handshake, Sprout, Building, Users, Heart, Sun, Droplets, Leaf } from "lucide-react";
+import PaystackCheckoutButton from "@/components/payments/PaystackCheckoutButtonWrapper";
 
 export const metadata: Metadata = {
   title: "Partner With Us | Zedjah",
@@ -34,14 +35,14 @@ export default function PartnersPage() {
               <div style={{ width: "64px", height: "64px", background: "var(--color-surface-accent)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto var(--space-md)", color: "var(--color-primary)" }}>
                 <Sprout size={32} />
               </div>
-              <h3 style={{ marginBottom: "var(--space-sm)" }}>NGOs & Non-Profits</h3>
+              <h3 style={{ marginBottom: "var(--space-sm)" }}>NGOs &amp; Non-Profits</h3>
               <p>Collaborate with us on community resilience projects and food security programs.</p>
             </div>
             <div className="card" style={{ textAlign: "center", padding: "var(--space-2xl) var(--space-xl)" }}>
               <div style={{ width: "64px", height: "64px", background: "var(--color-surface-accent)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto var(--space-md)", color: "var(--color-primary)" }}>
                 <Building size={32} />
               </div>
-              <h3 style={{ marginBottom: "var(--space-sm)" }}>Corporate & Retail</h3>
+              <h3 style={{ marginBottom: "var(--space-sm)" }}>Corporate &amp; Retail</h3>
               <p>Source high-quality organic produce directly from our network of trained farmers.</p>
             </div>
             <div className="card" style={{ textAlign: "center", padding: "var(--space-2xl) var(--space-xl)" }}>
@@ -71,7 +72,13 @@ export default function PartnersPage() {
                 <h3 style={{ marginBottom: "var(--space-xs)" }}>Buy Farm Tools</h3>
                 <p style={{ color: "var(--color-text-secondary)", marginBottom: "var(--space-md)", fontSize: "var(--text-sm)" }}>Provides organic seeds and basic hand tools.</p>
                 <h2 style={{ fontSize: "var(--text-4xl)", color: "var(--color-primary)", marginBottom: "var(--space-xl)" }}>KES 2,500</h2>
-                <button className="btn btn-outline" style={{ width: "100%" }}>Fund Tools</button>
+                <PaystackCheckoutButton
+                  amount={2500}
+                  label="Fund Tools"
+                  itemName="FundTools"
+                  className="btn btn-outline"
+                  style={{ width: "100%" }}
+                />
               </div>
 
               <div className="card" style={{ textAlign: "center", position: "relative", overflow: "hidden", border: "2px solid var(--color-accent)" }}>
@@ -82,7 +89,13 @@ export default function PartnersPage() {
                 <h3 style={{ marginBottom: "var(--space-xs)" }}>Pay for Training</h3>
                 <p style={{ color: "var(--color-text-secondary)", marginBottom: "var(--space-md)", fontSize: "var(--text-sm)" }}>Funds a full month of farming education.</p>
                 <h2 style={{ fontSize: "var(--text-4xl)", color: "var(--color-primary)", marginBottom: "var(--space-xl)" }}>KES 10,000</h2>
-                <button className="btn btn-accent" style={{ width: "100%" }}>Fund Training</button>
+                <PaystackCheckoutButton
+                  amount={10000}
+                  label="Fund Training"
+                  itemName="FundTraining"
+                  className="btn btn-accent"
+                  style={{ width: "100%" }}
+                />
               </div>
 
               <div className="card" style={{ textAlign: "center", position: "relative", overflow: "hidden" }}>
@@ -92,7 +105,13 @@ export default function PartnersPage() {
                 <h3 style={{ marginBottom: "var(--space-xs)" }}>Support a Farm</h3>
                 <p style={{ color: "var(--color-text-secondary)", marginBottom: "var(--space-md)", fontSize: "var(--text-sm)" }}>Provides machinery access and market support.</p>
                 <h2 style={{ fontSize: "var(--text-4xl)", color: "var(--color-primary)", marginBottom: "var(--space-xl)" }}>KES 25,000</h2>
-                <button className="btn btn-outline" style={{ width: "100%" }}>Support Now</button>
+                <PaystackCheckoutButton
+                  amount={25000}
+                  label="Support Now"
+                  itemName="SupportFarm"
+                  className="btn btn-outline"
+                  style={{ width: "100%" }}
+                />
               </div>
 
             </div>
