@@ -10,20 +10,53 @@ export const metadata: Metadata = {
 export default function PartnersPage() {
   return (
     <>
-      <section className="section" style={{ 
-        background: "linear-gradient(rgba(13, 59, 19, 0.8), rgba(27, 94, 32, 0.85)), url('/images/partner_hero.png') center / cover no-repeat", 
+      <section style={{ 
+        position: "relative",
+        backgroundImage: "url('/images/partner_hero.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center 30%",
+        backgroundRepeat: "no-repeat",
         color: "var(--color-text-inverse)", 
-        padding: "var(--space-6xl) 0",
+        padding: "calc(var(--space-5xl) + 2rem) 0 var(--space-4xl)",
         minHeight: "450px",
         display: "flex",
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "center",
       }}>
-        <div className="container" style={{ textAlign: "center" }}>
-          <span style={{ color: "var(--color-accent)", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Partnerships</span>
-          <h1 style={{ fontSize: "var(--text-5xl)", marginTop: "var(--space-sm)", marginBottom: "var(--space-md)" }}>Let's Grow a Forest Together</h1>
-          <p style={{ fontSize: "var(--text-lg)", maxWidth: "700px", margin: "0 auto", color: "var(--color-surface-warm)", opacity: 0.9 }}>
+        {/* Overlay */}
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(180deg, rgba(13, 59, 19, 0.75) 0%, rgba(27, 94, 32, 0.6) 50%, rgba(13, 59, 19, 0.8) 100%)",
+        }} />
+        <div className="container" style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
+          <span style={{ 
+            display: "inline-block",
+            fontFamily: "var(--font-heading)", 
+            fontWeight: "600", 
+            fontSize: "var(--text-sm)",
+            color: "var(--color-accent)", 
+            textTransform: "uppercase", 
+            letterSpacing: "0.1em",
+            marginBottom: "var(--space-md)",
+          }}>Partnerships</span>
+          <h1 style={{ 
+            fontFamily: "var(--font-heading)",
+            fontSize: "clamp(2rem, 5vw, 3.5rem)", 
+            fontWeight: 700,
+            color: "var(--color-text-inverse)",
+            lineHeight: "var(--leading-tight)",
+            marginBottom: "var(--space-lg)",
+          }}>Let&apos;s Grow a Forest Together</h1>
+          <p style={{ 
+            fontSize: "var(--text-lg)", 
+            maxWidth: "700px", 
+            margin: "0 auto", 
+            color: "rgba(255, 255, 255, 0.7)",
+            lineHeight: "var(--leading-relaxed)",
+          }}>
             A single seed can grow a tree, but it takes a community to grow a forest. 
-            Whether you're an NGO, a corporate entity, or a research institution, your partnership is the sunlight we need to scale agroecology across the region.
+            Whether you&apos;re an NGO, a corporate entity, or a research institution, your partnership is the sunlight we need to scale agroecology across the region.
           </p>
         </div>
       </section>

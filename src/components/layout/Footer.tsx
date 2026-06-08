@@ -10,12 +10,11 @@ const FOOTER_LINKS = {
   ],
   Services: [
     { label: "Farm Consultancy", href: "/services" },
-    { label: "Soil & Nutrition", href: "/services/soil-nutrition" },
-    { label: "Market Linkage", href: "/services/market-linkage" },
+    { label: "Subscribe", href: "/services/subscribe" },
+    { label: "Partner With Us", href: "/partners" },
   ],
   Support: [
     { label: "Contact Us", href: "/contact" },
-    { label: "FAQ", href: "/faq" },
   ],
 };
 
@@ -82,10 +81,7 @@ export default function Footer() {
           <p className={styles.copyright}>
             &copy; {currentYear} Zedjah Organic Crowd Farms Ltd. All rights reserved.
           </p>
-          <div className={styles.legalLinks}>
-            <Link href="/privacy">Privacy Policy</Link>
-            <Link href="/terms">Terms of Service</Link>
-          </div>
+
         </div>
       </div>
     </footer>
