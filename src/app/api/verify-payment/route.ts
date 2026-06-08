@@ -4,6 +4,9 @@ import { rateLimit, getIP } from "@/lib/rateLimit";
 const PLAN_REQUIREMENTS = {
   Basic: { amount: 1_500_000, currency: "KES" },
   Pro: { amount: 2_500_000, currency: "KES" },
+  FundTools: { amount: 250_000, currency: "KES" },
+  FundTraining: { amount: 1_000_000, currency: "KES" },
+  SupportFarm: { amount: 2_500_000, currency: "KES" },
 } as const;
 
 export async function POST(req: Request) {
