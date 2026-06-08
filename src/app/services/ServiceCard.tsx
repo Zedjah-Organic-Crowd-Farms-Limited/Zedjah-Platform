@@ -27,7 +27,7 @@ export default function ServiceCard({ service }: ServiceProps) {
         {/* Front of Card */}
         <div className={styles.flipCardFront}>
           <div className={styles.cardImageWrapper}>
-            <Image src={service.image} alt={service.alt} fill style={{ objectFit: "cover" }} />
+            <Image src={service.image} alt={service.alt} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: "cover" }} />
           </div>
           <div className={styles.cardFrontContent}>
             <h3 className={styles.cardTitle}>{service.title}</h3>

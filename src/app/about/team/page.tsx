@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const TEAM_MEMBERS = [
   { name: "Zachariah Mwangi", role: "Founder", desc: "Visionary behind Zedjah, dedicated to empowering communities through sustainable agriculture." },
   { name: "Charles Edward", role: "CEO and Lead", desc: "Strategic leader driving Zedjah's mission to transform the organic food industry in East Africa." },
-  { name: "Daniel Okinda", role: "CTO / IT Lead", desc: "Tech innovator building the digital infrastructure that connects farmers to essential resources." },
+  { name: "Daniel Okinda", role: "IT Lead", desc: "Tech innovator building the digital infrastructure that connects farmers to essential resources." },
   { name: "Vincent", role: "Operations", desc: "Ensures seamless day-to-day agricultural operations and maintains the highest standards of organic farming." },
 ];
 
