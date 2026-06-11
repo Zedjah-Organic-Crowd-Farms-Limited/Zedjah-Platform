@@ -31,7 +31,7 @@ export default function AboutPage() {
             one farm at a time
           </h1>
           <p className={styles.pageSubtitle}>
-            Zedjan organic crowd farms is a farm system Management company and organic food producing entity.
+            Zedjah organic crowd farms is a farm system Management company and organic food producing entity.
           </p>
         </div>
       </section>
@@ -78,7 +78,7 @@ export default function AboutPage() {
               <span className={styles.tag}>History</span>
               <h2>Our Origins</h2>
               <p>
-                Zedjan organic crowd farms was invented from a historic background of poverty and food insecurity - it was more of a relief and community empowerment project to improve community resilience. It thrives in the principles of Humanity, food security and sustainability having overcomed the effects of conventional agriculture.
+                Zedjah organic crowd farms was invented from a historic background of poverty and food insecurity - it was more of a relief and community empowerment project to improve community resilience. It thrives in the principles of Humanity, food security and sustainability having overcome the effects of conventional agriculture.
               </p>
             </div>
           </div>
@@ -89,9 +89,9 @@ export default function AboutPage() {
       {/* Values */}
       <section className={`section`} id="values">
         <div className="container">
-          <h2 className="section-heading">Zedjah Farm Core Values</h2>
+          <h2 className="section-heading">ZOC Core Values</h2>
           <p className="section-subtitle">
-            This are the core values that governs Zedjah Organic Crowd Farms Globally
+            These are the core values that govern Zedjah Organic Crowd Farms globally
           </p>
           <div className={styles.valuesGrid}>
             {[
@@ -103,17 +103,17 @@ export default function AboutPage() {
               {
                 icon: <Lightbulb size={28} />,
                 title: "Innovation",
-                desc: "To remain steadfast at intuitive solutiion thinking to remain sustainable.",
+                desc: "To remain steadfast at intuitive solution thinking to remain sustainable.",
               },
               {
                 icon: <Shield size={28} />,
                 title: "Integrity",
-                desc: "To accomodate humanity and orders of human rights in the peace of freedom and democracy.",
+                desc: "To accommodate humanity and orders of human rights in the peace of freedom and democracy.",
               },
               {
                 icon: <Coins size={28} />,
                 title: "Value For Money",
-                desc: "To assure and credit return on investment (ROI) reducing and substaining risks for prospective Agri business.",
+                desc: "To assure and credit return on investment (ROI) reducing and sustaining risks for prospective Agri business.",
               },
             ].map((value) => (
               <div key={value.title} className={styles.valueCard}>
