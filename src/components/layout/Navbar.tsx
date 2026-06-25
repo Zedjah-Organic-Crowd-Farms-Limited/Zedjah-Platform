@@ -28,10 +28,12 @@ const NAV_ITEMS: NavItem[] = [
       { label: "Our Story", href: "/about", description: "Learn who we are and our mission" },
       { label: "Our Team", href: "/about/team", description: "Meet the people behind Zedjah" },
       { label: "Our Impact", href: "/about/impact", description: "See the difference we make" },
+      { label: "Gallery", href: "/about/gallery", description: "Videos and photos of our farms" },
     ],
   },
   { label: "Services", href: "/services" },
   { label: "Partners", href: "/partners" },
+  { label: "E-commerce", href: "/store" },
 ];
 
 export default function Navbar() {
