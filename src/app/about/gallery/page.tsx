@@ -138,7 +138,7 @@ export default function GalleryPage() {
               key={item.id}
               className={`${styles.card} ${item.type === "Photos" ? styles[item.aspect || "square"] : styles.videoCard} animate-fade-in`}
             >
-              <div className={styles.mediaWrapper}>
+              <div className={styles.mediaWrapper} style={{ position: "relative" }}>
                 <Image
                   src={item.image}
                   alt={item.title}

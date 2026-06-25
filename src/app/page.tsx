@@ -192,6 +192,7 @@ export default function Home() {
                   width={600}
                   height={500}
                   className={styles.marketImg}
+                  style={{ height: "auto" }}
                 />
               </div>
             </div>
