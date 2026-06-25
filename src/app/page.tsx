@@ -4,6 +4,7 @@ import {
   FlaskConical,
   Handshake,
   ArrowRight,
+  ShoppingBag,
 } from "lucide-react";
 import styles from "./page.module.css";
 
@@ -140,6 +141,60 @@ export default function Home() {
                 </span>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Marketplace Promotion Section ─── */}
+      <section className={`section ${styles.marketplaceSection}`} id="marketplace-preview">
+        <div className="container">
+          <div className={styles.marketplaceGrid}>
+            <div className={styles.marketplaceText}>
+              <span className={styles.sectionTag}>Digital Store</span>
+              <h2 className={styles.sectionTitle}>
+                The Zedjah Marketplace
+                <br />
+                <span className={styles.titleAccent}>Harvests Delivered Direct</span>
+              </h2>
+              <p>
+                We are cultivating an innovative direct-to-consumer e-commerce platform. Soon, you will be able to purchase certified organic farm produce, premium agricultural tools, and specialized soil nutrients directly from our crowd-funded farms.
+              </p>
+              <div className={styles.marketFeatures}>
+                <div className={styles.marketFeature}>
+                  <div className={styles.featureIcon}>
+                    <Sprout size={20} />
+                  </div>
+                  <div>
+                    <strong>100% Organic Certified</strong>
+                    <p>Verified organic crops grown under expert agricultural supervision.</p>
+                  </div>
+                </div>
+                <div className={styles.marketFeature}>
+                  <div className={styles.featureIcon}>
+                    <ShoppingBag size={20} />
+                  </div>
+                  <div>
+                    <strong>Direct Farm Link</strong>
+                    <p>No middlemen. Better prices for consumers, fairer compensation for farmers.</p>
+                  </div>
+                </div>
+              </div>
+              <a href="/store" className="btn btn-primary" id="landing-store-cta">
+                Explore Marketplace <ArrowRight size={16} />
+              </a>
+            </div>
+            <div className={styles.marketplaceImageContainer}>
+              <div className={styles.imageBackingBlob} />
+              <div className={styles.marketplaceImageWrapper}>
+                <Image
+                  src="/images/marketplace-box.png"
+                  alt="Fresh organic farm box with vegetables and fruits"
+                  width={600}
+                  height={500}
+                  className={styles.marketImg}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

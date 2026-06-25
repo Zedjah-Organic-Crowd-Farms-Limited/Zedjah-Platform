@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { inter, outfit } from "./fonts";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -42,6 +43,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-QMPP4FDRXB"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QMPP4FDRXB');
+          `}
+        </Script>
+      </head>
       <body suppressHydrationWarning>
         <Navbar />
         <main style={{ paddingTop: "var(--nav-height)" }}>{children}</main>
