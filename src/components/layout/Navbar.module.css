@@ -1,6 +1,7 @@
-/* ============================================================
-   NAVBAR STYLES
-   ============================================================ */
+/* Hallmark · shape: kept · genre: editorial · theme: brand · redesign: full
+ * paper: #F5F0E8 · accent: #FFDA03 · display: Fraunces · body: Inter · hero: kept · nav: edge-aligned, logo left, links, one action · footer: kept · signature: kept
+ * axes: light/roman-serif/chromatic-yellow · posture: settled · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H3 E3 S4 R4 V3 · weakest: logo is the supplied mark only, no wordmark given */
 
 .navbar {
   position: fixed;
@@ -9,15 +10,13 @@
   right: 0;
   z-index: 1000;
   height: var(--nav-height);
-  transition: all var(--transition-base);
+  transition: background-color var(--transition-base), box-shadow var(--transition-base);
   background: transparent;
 }
 
 .scrolled {
-  background: rgba(250, 250, 245, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+  background: var(--color-surface-light);
+  box-shadow: 0 1px 0 var(--color-border);
 }
 
 .inner {
@@ -73,14 +72,14 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 0.5rem 1rem;
+  padding: var(--space-sm) var(--space-md);
   font-family: var(--font-body);
   font-weight: 500;
   font-size: var(--text-sm);
   color: var(--color-text-primary);
   text-decoration: none;
-  border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
   cursor: pointer;
   background: none;
   border: none;
@@ -89,7 +88,7 @@
 
 .navLink:hover {
   color: var(--color-primary);
-  background: rgba(27, 94, 32, 0.06);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
 }
 
 .active {
@@ -134,7 +133,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: all var(--transition-base);
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility var(--transition-base);
 }
 
 .dropdownOpen {
@@ -159,7 +158,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: all var(--transition-base);
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility var(--transition-base);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-sm);
@@ -176,18 +175,18 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
   text-decoration: none;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast);
 }
 
 .dropdownItem:hover {
-  background: rgba(27, 94, 32, 0.06);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
 }
 
 .dropdownLabel {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: var(--text-sm);
   color: var(--color-text-primary);
@@ -203,24 +202,26 @@
 .ctaBtn {
   display: inline-flex;
   align-items: center;
-  padding: 0.6rem 1.5rem;
+  padding: var(--space-sm) var(--space-lg);
   margin-left: var(--space-lg);
   background: var(--color-primary);
   color: var(--color-text-inverse);
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: var(--text-sm);
   border-radius: var(--radius-full);
   text-decoration: none;
-  transition: all var(--transition-base);
+  transition: background-color var(--transition-fast);
   flex-shrink: 0;
   z-index: 10;
 }
 
 .ctaBtn:hover {
-  background: var(--color-primary-light);
-  box-shadow: var(--shadow-glow);
-  transform: translateY(-1px);
+  background: var(--color-primary-dark);
+}
+
+.ctaBtn:active {
+  background: var(--color-surface-dark);
 }
 
 /* ─── Hamburger ─── */
@@ -228,7 +229,7 @@
   display: none;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
   width: 28px;
   height: 28px;
   background: none;
@@ -244,21 +245,20 @@
   height: 2px;
   background: var(--color-text-primary);
   border-radius: 2px;
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base), opacity var(--transition-base);
   transform-origin: center;
 }
 
 .hamburgerOpen span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(4px, 4px);
 }
 
 .hamburgerOpen span:nth-child(2) {
-  opacity: 0;
   transform: scaleX(0);
 }
 
 .hamburgerOpen span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(4px, -4px);
 }
 
 /* ─── Mobile Overlay ─── */
@@ -279,7 +279,8 @@
   .navLinks {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
+    transform: translateX(100%);
     width: 80%;
     max-width: 320px;
     height: 100dvh;
@@ -289,19 +290,18 @@
     background: var(--color-surface-card);
     padding: calc(var(--nav-height) + var(--space-xl)) var(--space-xl) var(--space-xl);
     box-shadow: var(--shadow-xl);
-    transition: right var(--transition-slow);
-    transform: none;
+    transition: transform var(--transition-slow);
     left: auto;
     margin: 0;
     overflow-y: auto;
   }
 
   .navLinksOpen {
-    right: 0;
+    transform: translateX(0);
   }
 
   .navLink {
-    padding: 0.75rem 0.5rem;
+    padding: var(--space-md) var(--space-sm);
     font-size: var(--text-base);
     width: 100%;
     border-bottom: 1px solid var(--color-border);
@@ -312,7 +312,7 @@
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: color-mix(in srgb, var(--color-surface-dark) 55%, transparent);
     z-index: -1;
     animation: fadeIn 0.3s ease;
   }
@@ -355,16 +355,16 @@
   }
 
   .dropdownItem {
-    padding: 0.6rem 1rem;
+    padding: var(--space-sm) var(--space-md);
     border-radius: 0;
   }
 
   .dropdownItem:not(:last-child) {
-    border-bottom: 1px solid rgba(27, 94, 32, 0.06);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .dropdownItem:hover {
-    background: rgba(27, 94, 32, 0.08);
+    background: color-mix(in srgb, var(--color-primary) 12%, transparent);
   }
 
   .dropdownLabel {
@@ -400,14 +400,42 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.5rem;
+    padding: var(--space-md) var(--space-lg);
     background: var(--color-primary);
     color: var(--color-text-inverse);
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-weight: 600;
     font-size: var(--text-base);
     border-radius: var(--radius-full);
     text-decoration: none;
     width: 100%;
+  }
+}
+
+.navLink:focus-visible,
+.ctaBtn:focus-visible,
+.hamburger:focus-visible,
+.dropdownItem:focus-visible {
+  outline: 2px solid var(--color-focus-dark);
+  outline-offset: 2px;
+  transition: none;
+}
+
+.navLink:active {
+  background: color-mix(in srgb, var(--color-primary) 16%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navLinks,
+  .dropdown,
+  .megaMenu,
+  .hamburger span,
+  .chevron {
+    transition-duration: 0.01ms;
+  }
+  .mobileOverlay,
+  .dropdownOpen {
+    animation: none;
   }
 }

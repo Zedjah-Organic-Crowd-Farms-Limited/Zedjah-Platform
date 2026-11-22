@@ -7,9 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/about",
-    "/about/team",
-    "/about/impact",
-    "/about/gallery",
     "/services",
     "/partners",
     "/contact",
@@ -20,6 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified,
     changeFrequency: route === "" ? "daily" : "weekly",
-    priority: route === "" ? 1.0 : route.startsWith("/about/gallery") || route.startsWith("/store") ? 0.5 : 0.8,
+    priority: route === "" ? 1.0 : route.startsWith("/store") ? 0.5 : 0.8,
   }));
 }

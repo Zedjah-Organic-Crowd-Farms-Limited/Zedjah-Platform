@@ -21,19 +21,10 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/" },
-  {
-    label: "About Us",
-    href: "/about",
-    dropdown: [
-      { label: "Our Story", href: "/about", description: "Learn who we are and our mission" },
-      { label: "Our Team", href: "/about/team", description: "Meet the people behind Zedjah" },
-      { label: "Our Impact", href: "/about/impact", description: "See the difference we make" },
-      { label: "Gallery", href: "/about/gallery", description: "Videos and photos of our farms" },
-    ],
-  },
+  { label: "Our Story", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Partners", href: "/partners" },
-  { label: "E-commerce", href: "/store" },
+  { label: "Shop", href: "/store" },
 ];
 
 export default function Navbar() {
@@ -188,14 +179,14 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               id="nav-mobile-cta"
             >
-              Get Started
+              Contact us
             </Link>
           </li>
         </ul>
 
         {/* CTA button — far right */}
         <Link href="/contact" className={styles.ctaBtn} id="nav-cta">
-          Get Started
+          Contact us
         </Link>
 
         {/* Mobile hamburger */}

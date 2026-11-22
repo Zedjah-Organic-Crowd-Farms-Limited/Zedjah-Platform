@@ -1,177 +1,180 @@
 import type { Metadata } from "next";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact",
   description:
-    "Get in touch with Zedjah Organic Crowd Farms. Reach out for consultancy, partnerships, or general inquiries.",
+    "Reach Zedjah Organic Crowd Farms: general enquiries, partnerships, farmers wanting to list their harvest, or a message to our founder Zachariah Mwangi.",
 };
 
 const WHATSAPP_NUMBER = "254790344724";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello Zedjah! I'm interested in learning more about your organic farming services."
+  "Hello Zedjah, I would like to learn more about your work."
 );
+
+const CHANNELS = [
+  { name: "General", label: "info@zedjahorganiccrowdfarms.com", href: "mailto:info@zedjahorganiccrowdfarms.com" },
+  { name: "Partnerships", label: "partners@zedjahorganiccrowdfarms.com", href: "mailto:partners@zedjahorganiccrowdfarms.com" },
+  { name: "The founder", label: "zachariah@zedjahorganiccrowdfarms.com", href: "mailto:zachariah@zedjahorganiccrowdfarms.com" },
+];
 
 export default function ContactPage() {
   return (
     <>
-      {/* Page Hero */}
-      <section className={styles.pageHero} id="contact-hero">
-        <div className="container">
-          <span className={styles.tag}>Get in Touch</span>
-          <h1 className={styles.pageTitle}>
-            Let&apos;s grow something
-            <br />
-            great together
-          </h1>
-          <p className={styles.pageSubtitle}>
-            Whether you&apos;re a farmer, investor, or partner — we&apos;d love to hear
-            from you.
+      {/* Hero */}
+      <section className={styles.hero} id="contact-hero">
+        <div className={`container ${styles.heroInner}`}>
+          <h1 className={styles.heroTitle}>Let&apos;s talk.</h1>
+          <p className={styles.heroSubtitle}>
+            Reach the farm, the team or the founder — whichever gets you a useful reply.
           </p>
         </div>
       </section>
 
-      {/* Contact Content */}
-      <section className="section" id="contact-form-section">
-        <div className="container">
-          <div className={styles.contactGrid}>
-            {/* Contact Info */}
-            <div className={styles.contactInfo}>
-              <h2 className={styles.infoTitle}>Contact Information</h2>
-              <p className={styles.infoSubtitle}>
-                Reach out through any of these channels and we&apos;ll get back to
-                you within 24 hours.
-              </p>
+      {/* Direct lines + form */}
+      <section className={styles.main} id="contact-main">
+        <div className={`container ${styles.mainGrid}`}>
+          <aside className={styles.direct}>
+            <h2 className={styles.directTitle}>Direct lines</h2>
+            <ul className={styles.directList}>
+              <li className={styles.directItem}>
+                <span className={styles.directIcon} aria-hidden="true">
+                  <Phone size={18} />
+                </span>
+                <div>
+                  <span className={styles.directKey}>Phone</span>
+                  <a className={styles.directValue} href="tel:+254790344724">
+                    +254 790 344 724
+                  </a>
+                </div>
+              </li>
+              <li className={styles.directItem}>
+                <span className={styles.directIcon} aria-hidden="true">
+                  <WhatsAppIcon size={18} />
+                </span>
+                <div>
+                  <span className={styles.directKey}>WhatsApp</span>
+                  <a
+                    className={styles.directValue}
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Chat with us
+                  </a>
+                </div>
+              </li>
+              <li className={styles.directItem}>
+                <span className={styles.directIcon} aria-hidden="true">
+                  <MapPin size={18} />
+                </span>
+                <div>
+                  <span className={styles.directKey}>Post</span>
+                  <span className={styles.directValue}>
+                    P.O. Box 3105-10300, Kerugoya, Kenya
+                  </span>
+                </div>
+              </li>
+            </ul>
 
-              <div className={styles.infoList}>
-                <div className={styles.infoItem}>
-                  <span className={styles.infoIcon}>
-                    <Mail size={20} />
-                  </span>
-                  <div>
-                    <h4>Email</h4>
-                    <p>zedjahorganiccrowdfarms@gmail.com</p>
-                  </div>
+            <div className={styles.inboxes}>
+              <h3 className={styles.inboxesTitle}>Email the right desk</h3>
+              <ul className={styles.inboxList}>
+                {CHANNELS.map((c) => (
+                  <li key={c.name} className={styles.inboxItem}>
+                    <span className={styles.inboxKey}>{c.name}</span>
+                    <a className={styles.inboxValue} href={c.href}>{c.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+
+          <div className={styles.formBlock}>
+            <h2 className={styles.formTitle}>Send us a message</h2>
+            <p className={styles.formSub}>
+              Tell us a bit about what you need.
+            </p>
+            <form className={styles.form} id="contact-form">
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="first-name">First name</label>
+                  <input
+                    type="text"
+                    id="first-name"
+                    name="firstName"
+                    placeholder="Jane"
+                    required
+                  />
                 </div>
-                <div className={styles.infoItem}>
-                  <span className={styles.infoIcon}>
-                    <Phone size={20} />
-                  </span>
-                  <div>
-                    <h4>Phone</h4>
-                    <p>+254 790 344 724</p>
-                  </div>
-                </div>
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.infoItem}
-                  id="whatsapp-contact-link"
-                >
-                  <span className={`${styles.infoIcon} ${styles.whatsappIcon}`}>
-                    <WhatsAppIcon size={20} />
-                  </span>
-                  <div>
-                    <h4>WhatsApp</h4>
-                    <p className={styles.whatsappText}>Chat with us instantly</p>
-                  </div>
-                </a>
-                <div className={styles.infoItem}>
-                  <span className={styles.infoIcon}>
-                    <MapPin size={20} />
-                  </span>
-                  <div>
-                    <h4>Location</h4>
-                    <p>Po. Box 3105-10300 Kerugoya</p>
-                  </div>
-                </div>
-                <div className={styles.infoItem}>
-                  <span className={styles.infoIcon}>
-                    <Clock size={20} />
-                  </span>
-                  <div>
-                    <h4>Working Hours</h4>
-                    <p>Mon – Fri, 8:00 AM – 5:00 PM EAT</p>
-                  </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="last-name">Last name</label>
+                  <input
+                    type="text"
+                    id="last-name"
+                    name="lastName"
+                    placeholder="Wanjiku"
+                    required
+                  />
                 </div>
               </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className={styles.formCard}>
-              <h3 className={styles.formTitle}>Send us a message</h3>
-              <form className={styles.form} id="contact-form">
-                <div className={styles.formRow}>
-                  <div className={styles.formGroup}>
-                    <label htmlFor="first-name">First Name</label>
-                    <input
-                      type="text"
-                      id="first-name"
-                      name="firstName"
-                      placeholder="John"
-                      required
-                    />
-                  </div>
-                  <div className={styles.formGroup}>
-                    <label htmlFor="last-name">Last Name</label>
-                    <input
-                      type="text"
-                      id="last-name"
-                      name="lastName"
-                      placeholder="Doe"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className={styles.formGroup}>
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="john@example.com"
-                    required
-                  />
-                </div>
-                <div className={styles.formGroup}>
-                  <label htmlFor="subject">Subject</label>
-                  <select id="subject" name="subject" required>
-                    <option value="">Select a topic</option>
-                    <option value="consultancy">Farm Consultancy</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="investment">Investment</option>
-                    <option value="general">General Inquiry</option>
-                  </select>
-                </div>
-                <div className={styles.formGroup}>
-                  <label htmlFor="message">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    placeholder="Tell us how we can help..."
-                    required
-                  />
-                </div>
-                <button type="submit" className="btn btn-primary" id="contact-submit">
-                  Send Message
-                </button>
-              </form>
-            </div>
+              <div className={styles.formGroup}>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label htmlFor="subject">What is this about</label>
+                <select id="subject" name="subject" required defaultValue="">
+                  <option value="" disabled>
+                    Pick a topic
+                  </option>
+                  <option value="general">General enquiry</option>
+                  <option value="shop">A shop order</option>
+                  <option value="services">Farm or consultancy services</option>
+                  <option value="partnership">Partnership</option>
+                    <option value="founder">A note for the founder</option>
+                </select>
+              </div>
+              <div className={styles.formGroup}>
+                <label htmlFor="message">Your message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  placeholder="Tell us a little about what you need."
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="btn btn-primary"
+                id="contact-submit"
+              >
+                Send message
+              </button>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* Map */}
       <section className={styles.mapSection} id="location-map">
-        <div className="container">
-          <h2 className="section-heading">Find Us</h2>
-          <p className="section-subtitle">
-            Visit our farm in the heart of Kirinyaga County
+        <div className={`container ${styles.mapHead}`}>
+          <h2 className={styles.sectionTitle}>Find the farm</h2>
+          <p className={styles.mapSub}>
+            We sit in Kirinyaga County, on the south-west slope of Mount Kenya.
+            Drop by on a Thursday or Friday for the farm tour.
           </p>
+        </div>
+        <div className="container">
           <div className={styles.mapWrapper}>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127642.78580832792!2d37.2833!3d-0.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18287c4d5bcf7a5b%3A0x1a1a3f1e2e3c4d5e!2sKirinyaga%20County!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske"
@@ -181,7 +184,7 @@ export default function ContactPage() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Zedjah Organic Crowd Farms - Kirinyaga County Location"
+              title="Zedjah Organic Crowd Farms — Kirinyaga County"
               id="google-map-embed"
             />
           </div>

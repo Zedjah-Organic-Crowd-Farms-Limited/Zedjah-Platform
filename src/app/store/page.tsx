@@ -1,52 +1,63 @@
-import Link from "next/link";
-import { ArrowLeft, ShoppingBag, Mail, Compass } from "lucide-react";
+import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
 import styles from "./store.module.css";
+import ShopCatalog from "./ShopCatalog";
+import { PRODUCTS } from "./products";
 
-export const metadata = {
-  title: "E-commerce Store | Zedjah",
-  description: "The Zedjah Organic Crowd Farming marketplace is coming soon. Subscribe or contact us to learn more.",
+export const metadata: Metadata = {
+  title: "Shop",
+  description:
+    "The Zedjah Shop: organic produce grown on our farms and by partner farmers across Kenya.",
 };
 
-export default function StoreComingSoon() {
+const CATEGORIES = [
+  { key: "fresh", label: "Fresh produce", count: PRODUCTS.filter((p) => p.category === "fresh").length },
+  { key: "nuts-oils", label: "Nuts and oils", count: PRODUCTS.filter((p) => p.category === "nuts-oils").length },
+  { key: "pantry", label: "Pantry", count: PRODUCTS.filter((p) => p.category === "pantry").length },
+];
+
+const GROWERS = [
+  { key: "zedjah", label: "Zedjah farms", count: PRODUCTS.filter((p) => p.grower === "zedjah").length },
+  { key: "partner", label: "Partner growers", count: PRODUCTS.filter((p) => p.grower === "partner").length },
+];
+
+export default function ShopPage() {
   return (
-    <div className={styles.container}>
-      <div className={styles.glassCard}>
-        <div className={styles.iconWrapper}>
-          <ShoppingBag className={styles.icon} size={48} />
+    <>
+      {/* Hero */}
+      <section className={styles.hero} id="shop-hero">
+        <div className={`container ${styles.heroInner}`}>
+          <h1 className={styles.heroTitle}>A shop rooted in Kenya.</h1>
+          <p className={styles.heroSubtitle}>
+            Harvests from our farms and a growing network of youth-led farmers,
+            packed the week they ripen and shipped the day you order.
+          </p>
         </div>
-        
-        <span className={styles.badge}>Coming Soon</span>
-        
-        <h1 className={styles.title}>
-          The Zedjah <span className={styles.accent}>Marketplace</span>
-        </h1>
-        
-        <p className={styles.description}>
-          We are cultivating a direct-to-consumer digital store connecting our sustainable organic farms directly to your table. Soon, you will be able to purchase fresh produce, farm products, and consult packages directly from this platform.
-        </p>
+      </section>
 
-        <div className={styles.progressContainer}>
-          <div className={styles.progressLabel}>
-            <span>Cultivating Platform</span>
-            <span>75% Complete</span>
+      {/* Catalog */}
+      <section className={styles.catalogSection} id="shop-shelf">
+        <div className="container">
+          <ShopCatalog
+            products={PRODUCTS}
+            categories={CATEGORIES}
+            growers={GROWERS}
+          />
+        </div>
+      </section>
+
+      {/* Close */}
+      <section className={styles.close} id="shop-close">
+        <div className={`container ${styles.closeInner}`}>
+          <h2 className={styles.closeTitle}>Order a basket, or list one.</h2>
+          <div className={styles.closeButtons}>
+            <a href="/contact" className="btn btn-primary">Order from the shop</a>
+            <a href="/contact" className={`btn btn-ghost ${styles.closeGhost}`}>
+              List your harvest <ArrowRight size={16} />
+            </a>
           </div>
-          <div className={styles.progressBar}>
-            <div className={styles.progressFill} />
-          </div>
         </div>
-
-        <div className={styles.ctaGroup}>
-          <Link href="/" className="btn btn-primary" id="store-home-btn">
-            <ArrowLeft size={16} /> Back to Home
-          </Link>
-          <Link href="/contact" className="btn btn-outline" id="store-contact-btn">
-            <Mail size={16} /> Get Notified
-          </Link>
-        </div>
-      </div>
-
-      <div className={styles.backgroundBlob1} />
-      <div className={styles.backgroundBlob2} />
-    </div>
+      </section>
+    </>
   );
 }

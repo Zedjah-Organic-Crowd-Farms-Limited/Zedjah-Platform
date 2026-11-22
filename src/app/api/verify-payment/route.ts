@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { rateLimit, getIP } from "@/lib/rateLimit";
+import { findService, getPayAmount } from "@/app/services/service-list";
 
 const PLAN_REQUIREMENTS = {
   Basic: { amount: 1_500_000, currency: "KES" },
@@ -27,15 +28,15 @@ export async function POST(req: Request) {
   }
 
   try {
-    const { reference, plan, email } = await req.json();
+    const { reference, plan, serviceSlug, email } = await req.json();
 
     if (
       typeof reference !== "string" ||
       typeof email !== "string" ||
-      typeof plan !== "string" ||
+      (typeof plan !== "string" && typeof serviceSlug !== "string") ||
       !reference ||
       !email ||
-      !plan
+      !(plan || serviceSlug)
     ) {
       return NextResponse.json({ success: false, message: "Missing required fields" }, { status: 400 });
     }
@@ -44,7 +45,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, message: "Invalid reference format" }, { status: 400 });
     }
 
-    const expectedPlan = PLAN_REQUIREMENTS[plan as keyof typeof PLAN_REQUIREMENTS];
+    // Service bookings: expected amount is derived server-side from the slug.
+    const service = typeof serviceSlug === "string" ? findService(serviceSlug) : undefined;
+    const expectedPlan = service
+      ? { amount: getPayAmount(service) * 100, currency: "KES" }
+      : typeof plan === "string"
+        ? PLAN_REQUIREMENTS[plan as keyof typeof PLAN_REQUIREMENTS]
+        : undefined;
     if (!expectedPlan) {
       return NextResponse.json({ success: false, message: "Invalid plan" }, { status: 400 });
     }

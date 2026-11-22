@@ -1,0 +1,199 @@
+/* Hallmark · shape: Checkout · genre: editorial · theme: brand (palette verbatim from globals.css) · redesign: full
+ * paper: #F5F0E8 · accent: #FFDA03 · display: Outfit · body: Inter · hero: Ledge · nav: kept · footer: kept · signature: a selected-service brief on top of the rolling plans
+ * axes: light/geometric-sans/chromatic-yellow · posture: settled · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: the Paystack plans still live in a payment component the owner wired earlier */
+/* Hallmark · waive 7b · token --color-text-inverse is the owner's #FFFFFF · the owner asked that no colour change, so the brand white stays as found */
+
+.hero {
+  background: var(--color-surface-dark);
+  color: var(--color-text-inverse);
+  padding-block: var(--space-2xl) var(--space-3xl);
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.crumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+  font-size: var(--text-sm);
+  color: var(--color-text-inverse);
+  opacity: 0.85;
+}
+
+.crumbs a {
+  color: var(--color-text-inverse);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.crumbs a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.crumbs [aria-current="page"] {
+  color: var(--color-accent);
+}
+
+.crumbs svg {
+  color: var(--color-text-inverse);
+  opacity: 0.6;
+}
+
+.heroTitle {
+  max-width: 24ch;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-text-inverse);
+}
+
+.heroSubtitle {
+  max-width: 48ch;
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  color: var(--color-text-inverse);
+}
+
+/* Service brief */
+.brief {
+  background: var(--color-surface-light);
+  padding-block: var(--space-3xl) var(--space-4xl);
+}
+
+.briefGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.briefTitle {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.briefNote {
+  max-width: 40ch;
+  color: var(--color-text-primary);
+}
+
+.briefCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.briefKey {
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+}
+
+.briefAmount {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-primary);
+}
+
+.briefUnit {
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+}
+
+.briefLink {
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-border);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  transition: color var(--transition-fast);
+}
+
+.briefLink:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Plans section */
+.plans {
+  background: var(--color-surface-warm);
+  padding-block: var(--space-5xl);
+}
+
+.plansHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.plansTitle {
+  max-width: 20ch;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+.plansSub {
+  max-width: 48ch;
+  font-size: var(--text-lg);
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 960px) {
+  .briefGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+.hero a:focus-visible,
+.brief a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+  transition: none;
+}
+
+.brief a:focus-visible {
+  outline-color: var(--color-focus-dark);
+}
+
+.hero a:active,
+.brief a:active {
+  opacity: 0.85;
+}
+
+.briefLink {
+  white-space: nowrap;
+}
+
+.bookBtn {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+}

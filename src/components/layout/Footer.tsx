@@ -4,9 +4,7 @@ import styles from "./Footer.module.css";
 
 const FOOTER_LINKS = {
   Company: [
-    { label: "About Us", href: "/about" },
-    { label: "Our Team", href: "/about/team" },
-    { label: "Our Impact", href: "/about/impact" },
+    { label: "Our Story", href: "/about" },
   ],
   Services: [
     { label: "Farm Consultancy", href: "/services" },

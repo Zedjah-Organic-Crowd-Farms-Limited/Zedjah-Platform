@@ -1,28 +1,21 @@
 import type { Metadata } from "next";
-import SubscriptionCardsWrapper from "@/components/payments/SubscriptionCardsWrapper";
+import { Suspense } from "react";
+import SubscribeView from "./SubscribeView";
+
 export const metadata: Metadata = {
-  title: "Subscribe | Services",
-  description: "Subscribe to Zedjah's comprehensive organic farming services.",
+  title: "Checkout",
+  description:
+    "Pay for Zedjah's consultancy, subscribe to a plan, or book a service by card or M-Pesa.",
 };
 
 export default function SubscribePage() {
   return (
-    <>
-      <section className="section" style={{ background: "var(--color-surface-warm)", padding: "var(--space-4xl) 0" }}>
-        <div className="container" style={{ textAlign: "center" }}>
-          <span style={{ color: "var(--color-primary)", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Subscriptions</span>
-          <h1 style={{ fontSize: "var(--text-5xl)", marginTop: "var(--space-sm)", marginBottom: "var(--space-md)" }}>Choose Your Plan</h1>
-          <p style={{ fontSize: "var(--text-lg)", maxWidth: "600px", margin: "0 auto", color: "var(--color-text-secondary)" }}>
-            Unlock continuous support, expert consultancy, and premium organic inputs with our flexible service subscriptions.
-          </p>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-            <SubscriptionCardsWrapper />
-        </div>
-      </section>
-    </>
+    <Suspense
+      fallback={
+        <div style={{ minHeight: "60svh", background: "var(--color-surface-light)" }} />
+      }
+    >
+      <SubscribeView />
+    </Suspense>
   );
 }
